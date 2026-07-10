@@ -1,0 +1,11 @@
+/* ============================================================
+   FG DESIGNS — COSMOS DESIGN SYSTEM
+   Root stylesheet. Consumers link THIS file only.
+   Import order: fonts → tokens → utilities.
+   ============================================================ */
+@import url('./tokens/fonts.css');
+@import url('./tokens/colors.css');
+@import url('./tokens/typography.css');
+@import url('./tokens/spacing.css');
+@import url('./tokens/effects.css');
+@import url('./tokens/cosmos.css');

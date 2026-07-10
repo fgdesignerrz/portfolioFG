@@ -1,0 +1,190 @@
+/* ============================================================
+   FG DESIGNS — COSMOS UTILITIES
+   The signature background device: layered starfields + nebula haze.
+   Pure CSS (no image deps) so it scales to any surface.
+   ============================================================ */
+
+/* Base reset — opt-in via .fg-root on the page/app wrapper */
+.fg-root {
+  background: var(--surface-page);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.fg-root h1, .fg-root h2, .fg-root h3, .fg-root h4 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  margin: 0;
+}
+
+/* ---- Starfield: a deep void sprinkled with stars ---- */
+.fg-starfield {
+  position: relative;
+  background-color: var(--fg-void);
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%,  rgba(236,236,247,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 75% 18%,  rgba(236,236,247,0.7), transparent),
+    radial-gradient(1px 1px   at 40% 70%,  rgba(236,236,247,0.8), transparent),
+    radial-gradient(1px 1px   at 88% 62%,  rgba(199,189,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 60% 85%,  rgba(236,236,247,0.6), transparent),
+    radial-gradient(1px 1px   at 12% 88%,  rgba(247,227,181,0.7), transparent),
+    radial-gradient(1px 1px   at 32% 12%,  rgba(236,236,247,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 95% 92%, rgba(236,236,247,0.6), transparent),
+    radial-gradient(1px 1px   at 52% 42%,  rgba(199,189,255,0.6), transparent);
+  background-repeat: no-repeat;
+}
+
+/* ---- Nebula haze: soft cosmic glow blooms (layer atop starfield) ---- */
+.fg-nebula-bg {
+  position: relative;
+  background-color: var(--fg-ink);
+  background-image:
+    radial-gradient(60% 55% at 18% 12%,  rgba(142,123,255,0.16), transparent 70%),
+    radial-gradient(50% 50% at 88% 78%,  rgba(95,227,200,0.10),  transparent 70%),
+    radial-gradient(45% 45% at 70% 22%,  rgba(240,198,107,0.07), transparent 70%);
+}
+
+/* Combine void + nebula for a full hero backdrop */
+.fg-cosmos {
+  position: relative;
+  background-color: var(--fg-void);
+  background-image:
+    radial-gradient(55% 50% at 20% 10%, rgba(142,123,255,0.18), transparent 70%),
+    radial-gradient(45% 45% at 85% 80%, rgba(95,227,200,0.10),  transparent 70%),
+    radial-gradient(1.5px 1.5px at 22% 28%, rgba(236,236,247,0.9), transparent),
+    radial-gradient(1px 1px   at 72% 16%, rgba(236,236,247,0.7), transparent),
+    radial-gradient(1px 1px   at 44% 72%, rgba(236,236,247,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 86% 60%, rgba(199,189,255,0.8), transparent),
+    radial-gradient(1px 1px   at 58% 88%, rgba(236,236,247,0.6), transparent),
+    radial-gradient(1px 1px   at 14% 84%, rgba(247,227,181,0.7), transparent),
+    radial-gradient(1px 1px   at 35% 9%,  rgba(236,236,247,0.5), transparent);
+  background-repeat: no-repeat;
+}
+
+/* ---- Thin hairline divider with a faint cosmic glow ---- */
+.fg-rule {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--border-default), transparent);
+}
+
+/* ---- Text gradient: starlight (for the occasional hero word) ---- */
+.fg-text-stellar {
+  background: linear-gradient(100deg, var(--fg-star) 0%, var(--fg-violet-200) 55%, var(--fg-aurora-200) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================================
+   LIVING COSMOS — flowing gradients that drift through the
+   brand palette (violet → aurora → gold → violet), slow & fluid.
+   Same colors, always alternating. Falls back to a static
+   gradient when the user prefers reduced motion.
+   ============================================================ */
+
+/* Text: a hero word / title that shimmers through the palette.
+   The gradient repeats end-to-end so the slide loops seamlessly. */
+.fg-text-flow {
+  background-image: linear-gradient(
+    100deg,
+    var(--fg-violet-200) 0%,
+    var(--fg-violet-400) 22%,
+    var(--fg-aurora-200) 44%,
+    var(--fg-gold-200)   66%,
+    var(--fg-violet-400) 84%,
+    var(--fg-violet-200) 100%);
+  background-size: 200% auto;
+  background-position: 0% center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Surface: any object (card, badge, chip, hero panel) with a
+   living gradient wash drifting across it. */
+.fg-flow-surface {
+  background-image: linear-gradient(
+    120deg,
+    rgba(142,123,255,0.20) 0%,
+    rgba(95,227,200,0.14)  33%,
+    rgba(240,198,107,0.12) 66%,
+    rgba(142,123,255,0.20) 100%);
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+}
+
+/* Border: a 1px living gradient ring around a card (via mask). */
+.fg-flow-border {
+  position: relative;
+  isolation: isolate;
+}
+.fg-flow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background-image: linear-gradient(
+    120deg,
+    var(--fg-violet-400) 0%,
+    var(--fg-aurora-400)  33%,
+    var(--fg-gold-400)    66%,
+    var(--fg-violet-400)  100%);
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes fg-flow-x  { to { background-position: -200% center; } }
+@keyframes fg-flow-xy { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+/* Logo: the FG monogram masked over a living gradient. Works from
+   an external mask file (no <style>/SMIL inside the SVG needed, so
+   it survives asset sanitizing). Size it with width/height; the
+   aspect ratio (~square) is preserved by mask-size: contain. */
+.fg-logo-flow {
+  display: inline-block;
+  aspect-ratio: 2244 / 2286;
+  background-image: linear-gradient(
+    100deg,
+    var(--fg-violet-200) 0%,
+    var(--fg-violet-400) 22%,
+    var(--fg-aurora-200) 44%,
+    var(--fg-gold-200)   66%,
+    var(--fg-violet-400) 84%,
+    var(--fg-violet-200) 100%);
+  background-size: 200% auto;
+  background-position: 0% center;
+  -webkit-mask: url(../assets/logo/fg-logo-mask.svg) center / contain no-repeat;
+          mask: url(../assets/logo/fg-logo-mask.svg) center / contain no-repeat;
+}
+
+/* ---- Mono eyebrow / label ---- */
+.fg-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fg-twinkle { animation: fg-twinkle 4s var(--ease-in-out) infinite; }
+  @keyframes fg-twinkle { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+  .fg-text-flow    { animation: fg-flow-x  var(--dur-flow)      linear infinite; }
+  .fg-flow-surface { animation: fg-flow-xy var(--dur-flow-slow) ease-in-out infinite; }
+  .fg-flow-border::before { animation: fg-flow-xy var(--dur-flow-slow) ease-in-out infinite; }
+  .fg-logo-flow    { animation: fg-flow-x  var(--dur-flow)      linear infinite; }
+}
