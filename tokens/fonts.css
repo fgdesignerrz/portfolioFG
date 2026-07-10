@@ -1,7 +1,0 @@
-/* FG Designs — Webfonts
-   Loaded via Google Fonts CDN. For production, self-host these for offline
-   reliability + privacy. SUBSTITUTION NOTE: the FG monogram is hand-lettered
-   blackletter (used only as the logo image); no UI text uses blackletter.
-   Display/body/mono below are Google Fonts chosen to match the cosmic brand. */
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
