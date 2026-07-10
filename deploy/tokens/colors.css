@@ -1,0 +1,79 @@
+/* ============================================================
+   FG DESIGNS — COLOR SYSTEM
+   "A vastidão da galáxia" — deep-space voids, luminous starlight.
+   Cool indigo base + warm starlight-gold + aurora cyan accents.
+   ============================================================ */
+:root {
+  /* ---- Cosmic neutrals (the void) ---- */
+  --fg-void:        #050509;  /* deepest background — open space */
+  --fg-ink:         #0A0A14;  /* primary app background */
+  --fg-deep:        #0F0F1E;  /* section / panel background */
+  --fg-slate:       #16162A;  /* card surface */
+  --fg-haze:        #1E1E38;  /* raised surface / hover */
+  --fg-nebula:      #2A2A4A;  /* highest surface / active */
+
+  /* ---- Hairlines & borders (cool, low-alpha) ---- */
+  --fg-line:        rgba(180, 180, 230, 0.10);
+  --fg-line-strong: rgba(180, 180, 230, 0.18);
+  --fg-line-faint:  rgba(180, 180, 230, 0.06);
+
+  /* ---- Text (starlight) ---- */
+  --fg-star:        #ECECF7;  /* primary text — bright star */
+  --fg-mist:        #B6B6CE;  /* secondary text */
+  --fg-dust:        #7C7C98;  /* muted / captions */
+  --fg-faint:       #565670;  /* disabled / placeholder */
+
+  /* ---- Stellar Violet (PRIMARY accent) ---- */
+  --fg-violet-50:   #EDEAFF;
+  --fg-violet-200:  #C5BBFF;
+  --fg-violet-400:  #8E7BFF;  /* base — CTAs, links, focus */
+  --fg-violet-500:  #7A65F5;  /* hover/press */
+  --fg-violet-700:  #4A39B0;
+  --fg-violet-900:  #241B5E;  /* tints on dark */
+
+  /* ---- Starlight Gold (premium / foil accent) ---- */
+  --fg-gold-200:    #F7E3B5;
+  --fg-gold-400:    #F0C66B;  /* base — premium, highlights */
+  --fg-gold-600:    #C99A3C;
+
+  /* ---- Aurora Cyan (secondary accent) ---- */
+  --fg-aurora-200:  #B7F4E8;
+  --fg-aurora-400:  #5FE3C8;  /* base — aurora highlights */
+  --fg-aurora-600:  #2BA890;
+
+  /* ---- Semantic ---- */
+  --fg-success:     #4FD79B;
+  --fg-warning:     #F0C66B;
+  --fg-danger:      #FF6B81;
+  --fg-info:        #8E7BFF;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components
+     ============================================================ */
+  --surface-page:      var(--fg-ink);
+  --surface-sunken:    var(--fg-void);
+  --surface-section:   var(--fg-deep);
+  --surface-card:      var(--fg-slate);
+  --surface-raised:    var(--fg-haze);
+  --surface-active:    var(--fg-nebula);
+
+  --border-subtle:     var(--fg-line);
+  --border-default:    var(--fg-line-strong);
+  --border-faint:      var(--fg-line-faint);
+
+  --text-strong:       var(--fg-star);
+  --text-body:         var(--fg-mist);
+  --text-muted:        var(--fg-dust);
+  --text-disabled:     var(--fg-faint);
+  --text-on-accent:    #0A0A14;
+
+  --accent:            var(--fg-violet-400);
+  --accent-hover:      var(--fg-violet-500);
+  --accent-tint:       var(--fg-violet-900);
+  --accent-soft:       rgba(142, 123, 255, 0.14);
+
+  --premium:           var(--fg-gold-400);
+  --aurora:            var(--fg-aurora-400);
+
+  --focus-ring:        rgba(142, 123, 255, 0.55);
+}
